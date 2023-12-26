@@ -6,6 +6,7 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import logoAppartogo from '@/images/logos/appartogo.svg'
 import logoChessGame from '@/images/logos/chess-game.svg'
 import logoTopNews from '@/images/logos/newspaper.svg'
+import logoMoneyTrail from '@/images/logos/money-coin.svg'
 import logoSushiTakeout from '@/images/logos/sushi.svg'
 import logoOldPortfolio from '@/images/logos/portfolio-sami-avatar.png'
 import logoYear1Project from '@/images/logos/year1project.svg'
@@ -15,8 +16,18 @@ import { SubSimpleLayout } from '@/components/SubSimpleLayout'
 
 const projects = [
   {
+    name: 'Money Trail',
+    description: 'Stocks and Expenses tracker. (in-progress)',
+    technologies: 'React • NodeJS • MongoDB • JWT Auth',
+    link: {
+      href: 'https://samitamerarar.github.io/money-trail/',
+      label: 'github-pages',
+    },
+    logo: logoMoneyTrail,
+  },
+  {
     name: 'Sushi Takeout',
-    description: 'Realtime Order Tracker.',
+    description: 'Realtime sushi orders tracker.',
     technologies: 'EJS • NodeJS • MongoDB • Socket.IO',
     link: { href: 'https://sushi-takeout.samiarar.com/', label: 'nginx' },
     logo: logoSushiTakeout,
