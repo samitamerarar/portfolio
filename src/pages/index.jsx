@@ -256,7 +256,7 @@ export default function Home({ articles }) {
   return (
     <>
       <Head>
-        <title>Sami Arar - Business Systems Software developer</title>
+        <title>Sami Arar</title>
         <meta
           name="description"
           content="I’m Sami, a business systems and full stack developer based in Montreal City. 
