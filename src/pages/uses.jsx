@@ -1,8 +1,19 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
-import { Card } from '@/components/Card'
-import { Section } from '@/components/Section'
-import { SimpleLayout } from '@/components/SimpleLayout'
+import { Card } from '@/components/Card';
+import { Section } from '@/components/Section';
+import { SimpleLayout } from '@/components/SimpleLayout';
+
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['uses'])),
+    },
+  };
+}
 
 function ToolsSection({ children, ...props }) {
   return (
@@ -11,7 +22,7 @@ function ToolsSection({ children, ...props }) {
         {children}
       </ul>
     </Section>
-  )
+  );
 }
 
 function Tool({ title, href, children }) {
@@ -22,14 +33,15 @@ function Tool({ title, href, children }) {
       </Card.Title>
       <Card.Description>{children}</Card.Description>
     </Card>
-  )
+  );
 }
 
 export default function Uses() {
+  const { t } = useTranslation('uses');
   return (
     <>
       <Head>
-        <title>Uses - Sami Arar</title>
+        <title>{t('title', { name: 'Sami Arar' })}</title>
         <meta
           name="description"
           content="The softwares I depend on and the gadgets I adore."
@@ -48,7 +60,6 @@ export default function Uses() {
               It simplifies my workspace and keeps my desk clean.
             </Tool>
             <Tool title="Logitech G915 TKL">My go-to Windows Keyboard.</Tool>
-            <Tool title="Razer Viper Ultimate">My go-to Windows Mouse.</Tool>
           </ToolsSection>
           <ToolsSection title="Workstation 2">
             <Tool title="Apple MacBook Air (M2, 2022)">
@@ -83,5 +94,5 @@ export default function Uses() {
         </div>
       </SimpleLayout>
     </>
-  )
+  );
 }
