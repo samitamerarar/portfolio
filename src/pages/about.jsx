@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import Head from 'next/head'
-import Link from 'next/link'
-import clsx from 'clsx'
+import Image from 'next/image';
+import Head from 'next/head';
+import Link from 'next/link';
+import clsx from 'clsx';
 
-import { Container } from '@/components/Container'
-import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.jpg'
+import { Container } from '@/components/Container';
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
+import portraitImage from '@/images/portrait.jpg';
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -20,7 +20,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
         <span className="ml-4">{children}</span>
       </Link>
     </li>
-  )
+  );
 }
 
 function MailIcon(props) {
@@ -32,7 +32,7 @@ function MailIcon(props) {
         0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
       />
     </svg>
-  )
+  );
 }
 
 export default function About() {
@@ -120,5 +120,5 @@ export default function About() {
         </div>
       </Container>
     </>
-  )
+  );
 }

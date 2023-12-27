@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import clsx from 'clsx'
+import Link from 'next/link';
+import clsx from 'clsx';
 
 function ChevronRightIcon(props) {
   return (
@@ -11,7 +11,7 @@ function ChevronRightIcon(props) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
 export function Card({ as: Component = 'div', className, children }) {
@@ -21,7 +21,7 @@ export function Card({ as: Component = 'div', className, children }) {
     >
       {children}
     </Component>
-  )
+  );
 }
 
 Card.Link = function CardLink({ children, ...props }) {
@@ -33,24 +33,24 @@ Card.Link = function CardLink({ children, ...props }) {
         <span className="relative z-10">{children}</span>
       </Link>
     </>
-  )
-}
+  );
+};
 
 Card.Title = function CardTitle({ as: Component = 'h2', href, children }) {
   return (
     <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
-  )
-}
+  );
+};
 
 Card.Description = function CardDescription({ children }) {
   return (
     <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
       {children}
     </p>
-  )
-}
+  );
+};
 
 Card.Cta = function CardCta({ children }) {
   return (
@@ -61,8 +61,8 @@ Card.Cta = function CardCta({ children }) {
       {children}
       <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
     </div>
-  )
-}
+  );
+};
 
 Card.Eyebrow = function CardEyebrow({
   as: Component = 'p',
@@ -90,5 +90,5 @@ Card.Eyebrow = function CardEyebrow({
       )}
       {children}
     </Component>
-  )
-}
+  );
+};

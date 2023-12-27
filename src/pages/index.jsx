@@ -1,21 +1,21 @@
-import Image from 'next/image'
-import Head from 'next/head'
-import Link from 'next/link'
-import clsx from 'clsx'
+import Image from 'next/image';
+import Head from 'next/head';
+import Link from 'next/link';
+import clsx from 'clsx';
 
-import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
-import { Container } from '@/components/Container'
-import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import logoStingray from '@/images/logos/stingray.svg'
-import logoMatrox from '@/images/logos/matrox.svg'
-import logoPrattWhitney from '@/images/logos/prattwhitney.svg'
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
-import { formatDate } from '@/lib/formatDate'
+import { Button } from '@/components/Button';
+import { Card } from '@/components/Card';
+import { Container } from '@/components/Container';
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
+import image1 from '@/images/photos/image-1.jpg';
+import image2 from '@/images/photos/image-2.jpg';
+import image3 from '@/images/photos/image-3.jpg';
+import logoStingray from '@/images/logos/stingray.svg';
+import logoMatrox from '@/images/logos/matrox.svg';
+import logoPrattWhitney from '@/images/logos/prattwhitney.svg';
+import { generateRssFeed } from '@/lib/generateRssFeed';
+import { getAllArticles } from '@/lib/getAllArticles';
+import { formatDate } from '@/lib/formatDate';
 
 function MailIcon(props) {
   return (
@@ -37,7 +37,7 @@ function MailIcon(props) {
         className="stroke-zinc-400 dark:stroke-zinc-500"
       />
     </svg>
-  )
+  );
 }
 
 function BriefcaseIcon(props) {
@@ -61,7 +61,7 @@ function BriefcaseIcon(props) {
         className="stroke-zinc-400 dark:stroke-zinc-500"
       />
     </svg>
-  )
+  );
 }
 
 function ArrowDownIcon(props) {
@@ -74,7 +74,7 @@ function ArrowDownIcon(props) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
 function Article({ article }) {
@@ -89,7 +89,7 @@ function Article({ article }) {
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
-  )
+  );
 }
 
 function SocialLink({ icon: Icon, ...props }) {
@@ -100,7 +100,7 @@ function SocialLink({ icon: Icon, ...props }) {
       dark:group-hover:fill-zinc-300"
       />
     </Link>
-  )
+  );
 }
 
 function Newsletter() {
@@ -133,7 +133,7 @@ function Newsletter() {
         </Button>
       </div>
     </form>
-  )
+  );
 }
 
 function Resume() {
@@ -169,7 +169,7 @@ function Resume() {
       start: 'Jan.',
       end: 'Aug. 2019',
     },
-  ]
+  ];
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
@@ -222,11 +222,17 @@ function Resume() {
         />
       </Button>
     </div>
-  )
+  );
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+  let rotations = [
+    'rotate-2',
+    '-rotate-2',
+    'rotate-2',
+    'rotate-2',
+    '-rotate-2',
+  ];
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -249,7 +255,7 @@ function Photos() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default function Home({ articles }) {
@@ -311,12 +317,12 @@ export default function Home({ articles }) {
         </div>
       </Container>
     </>
-  )
+  );
 }
 
 export async function getStaticProps() {
   if (process.env.NODE_ENV === 'production') {
-    await generateRssFeed()
+    await generateRssFeed();
   }
 
   return {
@@ -325,5 +331,5 @@ export async function getStaticProps() {
         .slice(0, 4)
         .map(({ component, ...meta }) => meta),
     },
-  }
+  };
 }

@@ -1,18 +1,18 @@
-import Image from 'next/image'
-import Head from 'next/head'
+import Image from 'next/image';
+import Head from 'next/head';
 
-import { Card } from '@/components/Card'
-import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAppartogo from '@/images/logos/appartogo.svg'
-import logoChessGame from '@/images/logos/chess-game.svg'
-import logoTopNews from '@/images/logos/newspaper.svg'
-import logoMoneyTrail from '@/images/logos/money-coin.svg'
-import logoSushiTakeout from '@/images/logos/sushi.svg'
-import logoOldPortfolio from '@/images/logos/portfolio-sami-avatar.png'
-import logoYear1Project from '@/images/logos/year1project.svg'
-import logoYear2Project from '@/images/logos/year2project.svg'
-import logoYear3Project from '@/images/logos/year3project.svg'
-import { SubSimpleLayout } from '@/components/SubSimpleLayout'
+import { Card } from '@/components/Card';
+import { SimpleLayout } from '@/components/SimpleLayout';
+import logoAppartogo from '@/images/logos/appartogo.svg';
+import logoChessGame from '@/images/logos/chess-game.svg';
+import logoTopNews from '@/images/logos/newspaper.svg';
+import logoMoneyTrail from '@/images/logos/money-coin.svg';
+import logoSushiTakeout from '@/images/logos/sushi.svg';
+import logoOldPortfolio from '@/images/logos/portfolio-sami-avatar.png';
+import logoYear1Project from '@/images/logos/year1project.svg';
+import logoYear2Project from '@/images/logos/year2project.svg';
+import logoYear3Project from '@/images/logos/year3project.svg';
+import { SubSimpleLayout } from '@/components/SubSimpleLayout';
 
 const projects = [
   {
@@ -59,7 +59,7 @@ const projects = [
     },
     logo: logoOldPortfolio,
   },
-]
+];
 
 const academicProjects = [
   {
@@ -99,7 +99,7 @@ const academicProjects = [
     },
     logo: logoYear1Project,
   },
-]
+];
 
 function LinkIcon(props) {
   return (
@@ -109,7 +109,7 @@ function LinkIcon(props) {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
 export default function Projects() {
@@ -191,5 +191,5 @@ export default function Projects() {
         </ul>
       </SubSimpleLayout>
     </>
-  )
+  );
 }

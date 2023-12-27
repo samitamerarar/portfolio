@@ -1,4 +1,4 @@
-import { Container } from '@/components/Container'
+import { Container } from '@/components/Container';
 
 export function SubSimpleLayout({ title, intro, children }) {
   return (
@@ -13,5 +13,5 @@ export function SubSimpleLayout({ title, intro, children }) {
       </header>
       <div className="mt-12 sm:mt-16">{children}</div>
     </Container>
-  )
+  );
 }
