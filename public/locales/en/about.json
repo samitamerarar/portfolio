@@ -1,0 +1,11 @@
+{
+  "head_title": "About - {{name}}",
+  "head_content": "I’m Sami Arar. I live in Montreal Metropolitan Area.",
+  "container_div1_h1": "I’m Sami Arar. I live in Montreal Metropolitan Area.",
+  "container_div1_p1": "I discovered my passion for coding during my physics classes in school. Intrigued by the world of programming, my journey began with embedded programming using C++. As I delved deeper into the realm of technology, I found joy in creating full-stack applications, particularly with web frameworks like React.",
+  "container_div1_p2": "My curiosity led me to explore the intersection of technology, business and finance, where I gained expertise in Salesforce, Netsuite, and Amazon Web Services. Today, I specialize in developing and optimizing business systems, leveraging my skills to navigate the intricate landscape of financial and business technologies.",
+  "container_div1_p3": "In addition to my proficiency in Salesforce, Netsuite, and AWS, I’ve embraced the versatility of Python in my toolkit. This broad spectrum of skills allows me to tackle diverse challenges, from building robust applications to crafting efficient solutions that drive business success.",
+  "container_div1_p4": "As I continue to evolve in this dynamic field, my journey reflects a commitment to learning and adapting to the ever-changing technological landscape, including the strategic use of OpenAI to amplify my capabilities.",
+  "container_div2_ul1": "My GitHub",
+  "container_div2_ul2": "My LinkedIn"
+}

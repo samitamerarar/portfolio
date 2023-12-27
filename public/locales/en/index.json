@@ -1,0 +1,18 @@
+{
+  "head_content": "I’m Sami, a business systems and full stack developer based in Montreal City. I graduated from Polytechnique Montréal in Software Engineering in 2020. I'm passionate about full stack programming and I had to teach myself to never stop learning.",
+  "container_div1_h1": "Hi, I’m {{name}}",
+  "resume_div_h2": "Work",
+  "resume_div_bouton": "Download CV",
+  "resume_role4_end": "Present",
+  "resume_role4_start": "2022",
+  "resume_role4_title": "Business Systems Developer",
+  "resume_role3_end": "Dec. 2021",
+  "resume_role3_start": "May",
+  "resume_role3_title": "Salesforce Developer",
+  "resume_role2_end": "Aug. 2020",
+  "resume_role2_start": "May",
+  "resume_role2_title": "Software Engineering Intern",
+  "resume_role1_end": "Aug. 2019",
+  "resume_role1_start": "Jan.",
+  "resume_role1_title": "Business Analyst"
+}

@@ -41,54 +41,48 @@ export default function Uses() {
   return (
     <>
       <Head>
-        <title>{t('title', { name: 'Sami Arar' })}</title>
-        <meta
-          name="description"
-          content="The softwares I depend on and the gadgets I adore."
-        />
+        <title>{t('head_title', { name: 'Sami Arar' })}</title>
+        <meta name="description" content={t('head_content')} />
       </Head>
       <SimpleLayout
-        title="The software and the gadgets I depend on."
-        intro="My preferred tools for staying productive."
+        title={t('simplelayout_title')}
+        intro={t('simplelayout_intro')}
       >
         <div className="space-y-20">
-          <ToolsSection title="Workstation 1">
-            <Tool title="Custom-Built Windows PC (AMD Ryzen™ 7, 2023)">
-              What’s better than a robust gaming PC for software development!
+          <ToolsSection title={t('toolssection1_title')}>
+            <Tool title={t('toolssection1_tool1_title')}>
+              {t('toolssection1_tool1_content')}
             </Tool>
-            <Tool title="Any 34-inch 1440p widescreen monitor">
-              It simplifies my workspace and keeps my desk clean.
+            <Tool title={t('toolssection1_tool2_title')}>
+              {t('toolssection1_tool2_content')}
             </Tool>
-            <Tool title="Logitech G915 TKL">My go-to Windows Keyboard.</Tool>
-          </ToolsSection>
-          <ToolsSection title="Workstation 2">
-            <Tool title="Apple MacBook Air (M2, 2022)">
-              The M2 and macOS provides everything essential for a smooth and
-              efficient development experience, optimal performance and
-              convenience.
+            <Tool title={t('toolssection1_tool3_title')}>
+              {t('toolssection1_tool3_content')}
             </Tool>
           </ToolsSection>
-          <ToolsSection title="Development tools">
-            <Tool title="Visual Studio Code">
-              If I had to live with just one text editor, it would be Visual
-              Studio Code, it’s free and brimming with extensions.
+          <ToolsSection title={t('toolssection2_title')}>
+            <Tool title={t('toolssection2_tool1_title')}>
+              {t('toolssection2_tool1_content')}
             </Tool>
           </ToolsSection>
-          <ToolsSection title="Design">
-            <Tool title="Figma">
-              Best tool I’ve encountered for design and collaboration.
+          <ToolsSection title={t('toolssection3_title')}>
+            <Tool title={t('toolssection3_tool1_title')}>
+              {t('toolssection3_tool1_content')}
             </Tool>
           </ToolsSection>
-          <ToolsSection title="Productivity">
-            <Tool title="Obsidian">
-              A remarkable note-taking app that significantly enhances my
-              organizational efficiency.
+          <ToolsSection title={t('toolssection4_title')}>
+            <Tool title={t('toolssection4_tool1_title')}>
+              {t('toolssection4_tool1_content')}
             </Tool>
           </ToolsSection>
-          <ToolsSection title="Other recommendations">
-            <Tool title="Handbrake">
-              For video compression with a guarantee of maintaining picture
-              quality.
+          <ToolsSection title={t('toolssection5_title')}>
+            <Tool title={t('toolssection5_tool1_title')}>
+              {t('toolssection5_tool1_content')}
+            </Tool>
+          </ToolsSection>
+          <ToolsSection title={t('toolssection6_title')}>
+            <Tool title={t('toolssection6_tool1_title')}>
+              {t('toolssection6_tool1_content')}
             </Tool>
           </ToolsSection>
         </div>

@@ -6,6 +6,7 @@ import { Popover, Transition } from '@headlessui/react';
 import { Container } from '@/components/Container';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 function CloseIcon(props) {
   return (
@@ -84,6 +85,8 @@ function MobileNavItem({ href, children }) {
 }
 
 function MobileNavigation(props) {
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
   return (
     <Popover {...props}>
       <Popover.Button
@@ -140,10 +143,21 @@ function MobileNavigation(props) {
                 className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 
               dark:divide-zinc-100/5 dark:text-zinc-300"
               >
-                <MobileNavItem href="/">Home</MobileNavItem>
-                <MobileNavItem href="/about">About</MobileNavItem>
-                <MobileNavItem href="/projects">Projects</MobileNavItem>
-                <MobileNavItem href="/uses">Uses</MobileNavItem>
+                {lang === 'fr' ? (
+                  <>
+                    <MobileNavItem href="/">Accueil</MobileNavItem>
+                    <MobileNavItem href="/about">À Propos</MobileNavItem>
+                    <MobileNavItem href="/projects">Projets</MobileNavItem>
+                    <MobileNavItem href="/uses">Utilisations</MobileNavItem>
+                  </>
+                ) : (
+                  <>
+                    <MobileNavItem href="/">Home</MobileNavItem>
+                    <MobileNavItem href="/about">About</MobileNavItem>
+                    <MobileNavItem href="/projects">Projects</MobileNavItem>
+                    <MobileNavItem href="/uses">Uses</MobileNavItem>
+                  </>
+                )}
               </ul>
             </nav>
           </Popover.Panel>
@@ -161,7 +175,7 @@ function NavItem({ href, children }) {
       <Link
         href={href}
         className={clsx(
-          'relative block px-3 py-2 transition',
+          'relative block whitespace-nowrap px-3 py-2 transition',
           isActive
             ? 'text-teal-500 dark:text-teal-400'
             : 'hover:text-teal-500 dark:hover:text-teal-400'
@@ -180,6 +194,8 @@ function NavItem({ href, children }) {
 }
 
 function DesktopNavigation(props) {
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
   return (
     <nav {...props}>
       <ul
@@ -187,10 +203,21 @@ function DesktopNavigation(props) {
       shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 
       dark:ring-white/10"
       >
-        <NavItem href="/">Home</NavItem>
-        <NavItem href="/about">About</NavItem>
-        <NavItem href="/projects">Projects</NavItem>
-        <NavItem href="/uses">Uses</NavItem>
+        {lang === 'fr' ? (
+          <>
+            <NavItem href="/">Accueil</NavItem>
+            <NavItem href="/about">À Propos</NavItem>
+            <NavItem href="/projects">Projets</NavItem>
+            <NavItem href="/uses">Utilisations</NavItem>
+          </>
+        ) : (
+          <>
+            <NavItem href="/">Home</NavItem>
+            <NavItem href="/about">About</NavItem>
+            <NavItem href="/projects">Projects</NavItem>
+            <NavItem href="/uses">Uses</NavItem>
+          </>
+        )}
       </ul>
     </nav>
   );

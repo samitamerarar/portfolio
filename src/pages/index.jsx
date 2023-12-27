@@ -17,6 +17,9 @@ import { generateRssFeed } from '@/lib/generateRssFeed';
 import { getAllArticles } from '@/lib/getAllArticles';
 import { formatDate } from '@/lib/formatDate';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+
 function MailIcon(props) {
   return (
     <svg
@@ -137,37 +140,38 @@ function Newsletter() {
 }
 
 function Resume() {
+  const { t } = useTranslation('index');
   let resume = [
     {
       company: 'Stingray Group Inc.',
-      title: 'Business Systems Developer',
+      title: t('resume_role4_title'),
       logo: logoStingray,
-      start: '2022',
+      start: t('resume_role4_start'),
       end: {
-        label: 'Present',
+        label: t('resume_role4_end'),
         dateTime: new Date().getFullYear(),
       },
     },
     {
       company: 'Stingray Group Inc.',
-      title: 'Salesforce Developer',
+      title: t('resume_role3_title'),
       logo: logoStingray,
-      start: 'May',
-      end: 'Dec. 2021',
+      start: t('resume_role3_start'),
+      end: t('resume_role3_end'),
     },
     {
       company: 'Matrox Electronic Systems Ltd.',
-      title: 'Software Engineering Intern',
+      title: t('resume_role2_title'),
       logo: logoMatrox,
-      start: 'May',
-      end: 'Aug. 2020',
+      start: t('resume_role2_start'),
+      end: t('resume_role2_end'),
     },
     {
       company: 'Pratt & Whitney Canada',
-      title: 'Business Analyst',
+      title: t('resume_role1_title'),
       logo: logoPrattWhitney,
-      start: 'Jan.',
-      end: 'Aug. 2019',
+      start: t('resume_role1_start'),
+      end: t('resume_role1_end'),
     },
   ];
 
@@ -175,7 +179,7 @@ function Resume() {
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
+        <span className="ml-3">{t('resume_div_h2')}</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
@@ -215,7 +219,7 @@ function Resume() {
         ))}
       </ol>
       <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Download CV
+        {t('resume_div_bouton')}
         <ArrowDownIcon
           className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 
         dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50"
@@ -259,27 +263,20 @@ function Photos() {
 }
 
 export default function Home({ articles }) {
+  const { t } = useTranslation('index');
   return (
     <>
       <Head>
         <title>Sami Arar</title>
-        <meta
-          name="description"
-          content="I’m Sami, a business systems and full stack developer based in Montreal City. 
-          I graduated from Polytechnique Montréal in Software Engineering in 2020.
-          I'm passionate about full stack programming and I had to teach myself to never stop learning."
-        />
+        <meta name="description" content={t('head_content')} />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Hi, I’m Sami
+            {t('container_div1_h1', { name: 'Sami' })}
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Sami, a business systems and full stack developer based in
-            Montreal City. I graduated from Polytechnique Montréal in Software
-            Engineering in 2020. I’m passionate about full stack programming and
-            I had to teach myself to never stop learning.
+            {t('head_content')}
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -320,13 +317,14 @@ export default function Home({ articles }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   if (process.env.NODE_ENV === 'production') {
     await generateRssFeed();
   }
 
   return {
     props: {
+      ...(await serverSideTranslations(locale, ['index'])),
       articles: (await getAllArticles())
         .slice(0, 4)
         .map(({ component, ...meta }) => meta),

@@ -7,6 +7,17 @@ import { Container } from '@/components/Container';
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
 import portraitImage from '@/images/portrait.jpg';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['about'])),
+    },
+  };
+}
+
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
     <li className={clsx(className, 'flex')}>
@@ -36,14 +47,12 @@ function MailIcon(props) {
 }
 
 export default function About() {
+  const { t } = useTranslation('about');
   return (
     <>
       <Head>
-        <title>About - Sami Arar</title>
-        <meta
-          name="description"
-          content="I’m Sami Arar. I live in Montreal Metropolitan Area."
-        />
+        <title>{t('head_title', { name: 'Sami Arar' })}</title>
+        <meta name="description" content={t('head_content')} />
       </Head>
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
@@ -59,37 +68,13 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Sami Arar. I live in Montreal Metropolitan Area.
+              {t('container_div1_h1')}
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-              <p>
-                I discovered my passion for coding during my physics classes in
-                school. Intrigued by the world of programming, my journey began
-                with embedded programming using C++. As I delved deeper into the
-                realm of technology, I found joy in creating full-stack
-                applications, particularly with web frameworks like React.
-              </p>
-              <p>
-                My curiosity led me to explore the intersection of technology,
-                business and finance, where I gained expertise in Salesforce,
-                Netsuite, and Amazon Web Services. Today, I specialize in
-                developing and optimizing business systems, leveraging my skills
-                to navigate the intricate landscape of financial and business
-                technologies.
-              </p>
-              <p>
-                In addition to my proficiency in Salesforce, Netsuite, and AWS,
-                I’ve embraced the versatility of Python in my toolkit. This
-                broad spectrum of skills allows me to tackle diverse challenges,
-                from building robust applications to crafting efficient
-                solutions that drive business success.
-              </p>
-              <p>
-                As I continue to evolve in this dynamic field, my journey
-                reflects a commitment to learning and adapting to the
-                ever-changing technological landscape, including the strategic
-                use of OpenAI to amplify my capabilities.
-              </p>
+              <p>{t('container_div1_p1')}</p>
+              <p>{t('container_div1_p2')}</p>
+              <p>{t('container_div1_p3')}</p>
+              <p>{t('container_div1_p4')}</p>
             </div>
           </div>
           <div className="lg:pl-20">
@@ -99,14 +84,14 @@ export default function About() {
                 icon={GitHubIcon}
                 className="mt-4"
               >
-                My GitHub
+                {t('container_div2_ul1')}
               </SocialLink>
               <SocialLink
                 href="https://linkedin.com/in/samitamerarar"
                 icon={LinkedInIcon}
                 className="mt-4"
               >
-                My LinkedIn
+                {t('container_div2_ul2')}
               </SocialLink>
               <SocialLink
                 href="mailto:sami.t.arar@hotmail.com"
