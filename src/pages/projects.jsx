@@ -52,7 +52,7 @@ export default function Projects() {
   const projects = [
     {
       name: t('project1_name'),
-      description: t('project1_name'),
+      description: t('project1_description'),
       technologies: 'React • NodeJS • MongoDB • JWT Auth',
       link: {
         href: 'https://samitamerarar.github.io/money-trail/',
@@ -104,7 +104,7 @@ export default function Projects() {
       name: t('project6_name'),
       description: t('project6_description'),
       technologies: '.NET Core • C# • React',
-      link: { href: 'https://appartogo.com', label: 'company website' },
+      link: { href: 'https://appartogo.com', label: t('project6_link_label') },
       logo: logoAppartogo,
     },
     {
