@@ -1,6 +1,6 @@
 {
   "head_content": "Je m'appelle Sami, un développeur de systèmes d'affaires et full stack basé à Montréal. J'ai obtenu mon diplôme en génie logiciel de Polytechnique Montréal en 2020. Je suis passionné par la programmation full stack et je me suis enseigné à ne jamais cesser d'apprendre.",
-  "container_div1_h1": "Salut, je m'appelle {{name}}",
+  "container_div1_h1": "Bonjour, je m'appelle {{name}}",
   "resume_div_h2": "Travail",
   "resume_div_bouton": "Télécharger le CV",
   "resume_role4_end": "Présent",
@@ -14,5 +14,6 @@
   "resume_role2_title": "Stagiaire en génie logiciel",
   "resume_role1_end": "Août 2019",
   "resume_role1_start": "Jan.",
-  "resume_role1_title": "Analyste commercial"
+  "resume_role1_title": "Analyste commercial",
+  "photos_image3_title": "Généré par l'IA"
 }

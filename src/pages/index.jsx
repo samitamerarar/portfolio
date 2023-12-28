@@ -9,7 +9,7 @@ import { Container } from '@/components/Container';
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
 import image1 from '@/images/photos/image-1.jpg';
 import image2 from '@/images/photos/image-2.jpg';
-import image3 from '@/images/photos/image-3.jpg';
+import image3 from '@/images/photos/ai-generated-3.png';
 import logoStingray from '@/images/logos/stingray.svg';
 import logoMatrox from '@/images/logos/matrox.svg';
 import logoPrattWhitney from '@/images/logos/prattwhitney.svg';
@@ -230,6 +230,12 @@ function Resume() {
 }
 
 function Photos() {
+  const { t } = useTranslation('index');
+  const images = [
+    { src: image1 },
+    { src: image2 },
+    { src: image3, title: t('photos_image3_title') },
+  ];
   let rotations = [
     'rotate-2',
     '-rotate-2',
@@ -241,7 +247,7 @@ function Photos() {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3].map((image, imageIndex) => (
+        {images.map((image, imageIndex) => (
           <div
             key={image.src}
             className={clsx(
@@ -250,11 +256,18 @@ function Photos() {
             )}
           >
             <Image
-              src={image}
+              src={image.src}
               alt=""
               sizes="(min-width: 640px) 18rem, 11rem"
               className="absolute inset-0 h-full w-full object-cover"
             />
+            {image.title && (
+              <div className="absolute inset-0 flex items-end">
+                <div className="w-full bg-black bg-opacity-40 p-4">
+                  <p className="text-center text-white">{image.title}</p>
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
