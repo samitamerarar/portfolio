@@ -6,12 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "export": "next export",
-    "predeploy": "npm run build && npm run export",
-    "deploy": "gh-pages -d out"
+    "lint": "next lint"
   },
-  "homepage": "https://samitamerarar.github.io/portfolio",
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
     "@headlessui/react": "^1.7.0",
@@ -35,7 +31,6 @@
   "devDependencies": {
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.5",
-    "gh-pages": "^6.1.1",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.11"
   }

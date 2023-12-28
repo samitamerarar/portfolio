@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { appWithTranslation } from 'next-i18next';
+import nextI18NextConfig from '../../next-i18next.config';
 
 import Footer from '@/components/Footer';
 import { Header } from '@/components/Header';
@@ -38,4 +39,4 @@ const App = ({ Component, pageProps, router }) => {
   );
 };
 
-export default appWithTranslation(App);
+export default appWithTranslation(App, nextI18NextConfig);

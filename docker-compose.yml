@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  server:
+    ports:
+      - 5330:8080
+    container_name: portfolio
+    networks:
+      - nginxproxymanager_default
+    restart: always
+    build: .
+
+networks:
+  nginxproxymanager_default:
+    external: true
