@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  server:
+  portfolio:
     ports:
-      - 5330:8080
+      - 5330:3000
     container_name: portfolio
     networks:
       - nginx_default
