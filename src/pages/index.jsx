@@ -176,7 +176,7 @@ function Resume() {
   ];
 
   return (
-    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+    <div className="rounded-2xl border border-zinc-100 p-3 dark:border-zinc-700/40 sm:p-6">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">{t('resume_div_h2')}</span>
@@ -196,7 +196,7 @@ function Resume() {
                 {role.company}
               </dd>
               <dt className="sr-only">Role</dt>
-              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+              <dd className="w-[135px] text-xs text-zinc-500 dark:text-zinc-400 sm:w-auto">
                 {role.title}
               </dd>
               <dt className="sr-only">Date</dt>
@@ -252,7 +252,8 @@ function Photos() {
             key={image.src}
             className={clsx(
               'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
+              rotations[imageIndex % rotations.length],
+              { 'hidden md:block ': imageIndex >= 2 } // on mobile, hide the third and subsequent images
             )}
           >
             <Image
