@@ -8,6 +8,9 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+# docker-compose takes care of it
+# RUN npm run build
+
+EXPOSE 3000
 
 CMD ["npm", "start"]
