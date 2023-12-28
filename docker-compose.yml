@@ -9,6 +9,7 @@ services:
       - nginx_default
     restart: 'no'
     build: .
+    mem_limit: 512m # for my potato server
 
 networks:
   nginx_default:
