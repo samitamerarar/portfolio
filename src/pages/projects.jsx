@@ -92,7 +92,7 @@ export default function Projects() {
       description: t('project5_description'),
       technologies: 'HTML • CSS • Javascript',
       link: {
-        href: 'https://samitamerarar.github.io/top-news/',
+        href: 'https://samitamerarar.github.io/old-portfolio/',
         label: 'github-pages',
       },
       logo: logoOldPortfolio,
