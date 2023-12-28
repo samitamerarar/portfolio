@@ -42,6 +42,11 @@ function Footer() {
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
                 {lang === 'fr'
+                  ? `Conçu avec Next.js et Tailwind CSS, déployé sur Vercel`
+                  : `Built with Next.js and Tailwind CSS, deployed on Vercel`}
+              </p>
+              <p className="text-sm text-zinc-400 dark:text-zinc-500">
+                {lang === 'fr'
                   ? `© ${new Date().getFullYear()} Sami Arar. Tous droits réservés.`
                   : `© ${new Date().getFullYear()} Sami Arar. All rights reserved.`}
               </p>
