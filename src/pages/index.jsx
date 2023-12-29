@@ -141,6 +141,29 @@ function Newsletter() {
 
 function Resume() {
   const { t } = useTranslation('index');
+
+  const handleDownload = async () => {
+    try {
+      const isConfirmed = window.confirm(`${t('resume_div_bouton')}?`);
+      if (isConfirmed) {
+        const url = `/${t('resume_filename')}_public.pdf`;
+        const response = await fetch(url);
+        const blob = await response.blob();
+
+        // create an <a></a> tag
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.target = '_blank';
+        link.download = `${t('resume_filename')}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    } catch (error) {
+      console.error('Error downloading file:', error);
+    }
+  };
+
   let resume = [
     {
       company: 'Stingray Group Inc.',
@@ -218,7 +241,11 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button
+        variant="secondary"
+        className="group mt-6 w-full"
+        onClick={handleDownload}
+      >
         {t('resume_div_bouton')}
         <ArrowDownIcon
           className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 
