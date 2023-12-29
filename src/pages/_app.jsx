@@ -7,6 +7,7 @@ import { Header } from '@/components/Header';
 
 import '@/styles/tailwind.css';
 import 'focus-visible';
+import Script from 'next/script';
 
 function usePrevious(value) {
   let ref = useRef();
@@ -31,6 +32,22 @@ const App = ({ Component, pageProps, router }) => {
       <div className="relative">
         <Header />
         <main>
+          {/* google analytics -- Start */}
+          <Script
+            strategy="afterInteractive" // load after page renders
+            src="https://www.googletagmanager.com/gtag/js?id=G-VQWZDT19DJ"
+          />
+
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-VQWZDT19DJ');
+            `}
+          </Script>
+          {/* google analytics -- End */}
+
           <Component previousPathname={previousPathname} {...pageProps} />
         </main>
         <Footer />
