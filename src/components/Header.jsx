@@ -177,15 +177,15 @@ function NavItem({ href, children }) {
         className={clsx(
           'relative block whitespace-nowrap px-3 py-2 transition',
           isActive
-            ? 'text-teal-500 dark:text-teal-400'
-            : 'hover:text-teal-500 dark:hover:text-teal-400'
+            ? 'text-cyan-500 dark:text-cyan-400'
+            : 'hover:text-cyan-500 dark:hover:text-cyan-400'
         )}
       >
         {children}
         {isActive && (
           <span
-            className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 
-          via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0"
+            className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-cyan-500/0 
+          via-cyan-500/40 to-cyan-500/0 dark:from-cyan-400/0 dark:via-cyan-400/40 dark:to-cyan-400/0"
           />
         )}
       </Link>
@@ -255,14 +255,14 @@ function ModeToggle() {
     >
       <SunIcon
         className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 
-      group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 
-      [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 
-      [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600"
+      group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-cyan-50 
+      [@media(prefers-color-scheme:dark)]:stroke-cyan-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-cyan-50 
+      [@media(prefers-color-scheme:dark)]:group-hover:stroke-cyan-600"
       />
       <MoonIcon
         className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block 
-      [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 
-      [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500"
+      [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-cyan-400/10 
+      [@media_not_(prefers-color-scheme:dark)]:stroke-cyan-500"
       />
     </button>
   );
