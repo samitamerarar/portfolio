@@ -6,6 +6,7 @@ import { SimpleLayout } from '@/components/SimpleLayout';
 import logoAppartogo from '@/images/logos/appartogo.svg';
 import logoChessGame from '@/images/logos/chess-game.svg';
 import logoTopNews from '@/images/logos/newspaper.svg';
+import logoRetailRadarTrends from '@/images/logos/retail-radar-trends.svg';
 import logoMoneyTrail from '@/images/logos/money-coin.svg';
 import logoSushiTakeout from '@/images/logos/sushi.svg';
 import logoOldPortfolio from '@/images/logos/portfolio-sami-avatar.png';
@@ -51,9 +52,19 @@ export default function Projects() {
 
   const projects = [
     {
-      name: t('project1_name'),
-      description: t('project1_description'),
-      technologies: 'React • NodeJS • MongoDB • JWT Auth',
+      name: t('project10_name'),
+      description: t('project10_description'),
+      technologies: 'Python • Flask • Next.js • Postgres • JWT',
+      link: {
+        href: 'https://retail-radar-trends.vercel.app/',
+        label: 'vercel',
+      },
+      logo: logoRetailRadarTrends,
+    },
+    {
+      name: t('project9_name'),
+      description: t('project9_description'),
+      technologies: 'React • NodeJS • MongoDB • JWT',
       link: {
         href: 'https://samitamerarar.github.io/money-trail/',
         label: 'github-pages',
@@ -61,15 +72,15 @@ export default function Projects() {
       logo: logoMoneyTrail,
     },
     {
-      name: t('project2_name'),
-      description: t('project2_description'),
+      name: t('project8_name'),
+      description: t('project8_description'),
       technologies: 'EJS • NodeJS • MongoDB • Socket.IO',
       link: { href: 'https://sushi-takeout.samiarar.com/', label: 'nginx' },
       logo: logoSushiTakeout,
     },
     {
-      name: t('project3_name'),
-      description: t('project3_description'),
+      name: t('project7_name'),
+      description: t('project7_description'),
       technologies: 'Angular • NodeJS • Socket.IO',
       link: {
         href: 'https://chess-game-angular.samiarar.com/',
@@ -78,8 +89,8 @@ export default function Projects() {
       logo: logoChessGame,
     },
     {
-      name: t('project4_name'),
-      description: t('project4_description'),
+      name: t('project6_name'),
+      description: t('project6_description'),
       technologies: 'React • NodeJS • NewsAPI',
       link: {
         href: 'https://samitamerarar.github.io/top-news/',
@@ -101,15 +112,15 @@ export default function Projects() {
 
   const academicProjects = [
     {
-      name: t('project6_name'),
-      description: t('project6_description'),
+      name: t('project4_name'),
+      description: t('project4_description'),
       technologies: '.NET Core • C# • React',
-      link: { href: 'https://appartogo.com', label: t('project6_link_label') },
+      link: { href: 'https://appartogo.com', label: t('project4_link_label') },
       logo: logoAppartogo,
     },
     {
-      name: t('project7_name'),
-      description: t('project7_description'),
+      name: t('project3_name'),
+      description: t('project3_description'),
       technologies: 'Kotlin • C# • NodeJS • MongoDB',
       link: {
         href: 'https://github.com/samitamerarar/Year-3-Project_WPF_and_Android-Project',
@@ -118,8 +129,8 @@ export default function Projects() {
       logo: logoYear3Project,
     },
     {
-      name: t('project8_name'),
-      description: t('project8_description'),
+      name: t('project2_name'),
+      description: t('project2_description'),
       technologies: 'Angular • Typescript • NodeJS • MongoDB',
       link: {
         href: 'https://github.com/samitamerarar/Year-2-Project_MEAN_Stack-Project',
@@ -128,8 +139,8 @@ export default function Projects() {
       logo: logoYear2Project,
     },
     {
-      name: t('project9_name'),
-      description: t('project9_description'),
+      name: t('project1_name'),
+      description: t('project1_description'),
       technologies: 'C • C++',
       link: {
         href: 'https://github.com/samitamerarar/Year-1-Project_Programming_AVR_Robot-Project',
