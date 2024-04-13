@@ -6,6 +6,10 @@ Built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs
 
 [samiarar.com](https://samiarar.com/)
 
+## Development
+
+`npm run dev`
+
 ## Dockerize
 
 ### Dockerfile only

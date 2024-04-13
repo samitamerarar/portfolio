@@ -6,6 +6,7 @@ import { SimpleLayout } from '@/components/SimpleLayout';
 import logoAppartogo from '@/images/logos/appartogo.svg';
 import logoChessGame from '@/images/logos/chess-game.svg';
 import logoTopNews from '@/images/logos/newspaper.svg';
+import logoSocialWorkoutApi from '@/images/logos/socialworkout-api.svg';
 import logoRetailRadarTrends from '@/images/logos/retail-radar-trends.svg';
 import logoMoneyTrail from '@/images/logos/money-coin.svg';
 import logoSushiTakeout from '@/images/logos/sushi.svg';
@@ -51,6 +52,16 @@ export default function Projects() {
   const { t } = useTranslation('projects');
 
   const projects = [
+    {
+      name: t('project11_name'),
+      description: t('project11_description'),
+      technologies: 'Python • FastAPI • SQLite • JWT',
+      link: {
+        href: 'https://socialworkout-api.samiarar.com/docs',
+        label: 'nginx',
+      },
+      logo: logoSocialWorkoutApi,
+    },
     {
       name: t('project10_name'),
       description: t('project10_description'),

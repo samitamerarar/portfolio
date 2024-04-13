@@ -5,6 +5,8 @@
   "simplelayout_intro": "Displayed here is a compilation of personal projects, predominantly executed during my academic journey at the university. Hosted using AWS Services.",
   "subsimplelayout1_title": "Academic projects",
   "subsimplelayout1_intro": "Projects undertaken within the university program.",
+  "project11_name": "Social Workout - API",
+  "project11_description": "Very basic backend for a social app.",
   "project10_name": "Retail Radar Trends",
   "project10_description": "Track trends over the years.",
   "project9_name": "Money Trail",

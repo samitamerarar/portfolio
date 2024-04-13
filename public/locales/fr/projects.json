@@ -5,6 +5,8 @@
   "simplelayout_intro": "Vous trouverez ici une compilation de projets personnels, principalement réalisés au cours de mon parcours académique. Hébergés grâce aux services de AWS.",
   "subsimplelayout1_title": "Projets académiques",
   "subsimplelayout1_intro": "Projets entrepris dans le cadre du programme universitaire.",
+  "project11_name": "Entraînement social - API",
+  "project11_description": "Backend très basique pour une application sociale.",
   "project10_name": "Analyse tendances commerce",
   "project10_description": "Suivre l'évolution des tendances au fil des ans.",
   "project9_name": "Money Trail",
