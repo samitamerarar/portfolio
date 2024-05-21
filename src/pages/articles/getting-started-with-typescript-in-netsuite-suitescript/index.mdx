@@ -1,0 +1,122 @@
+#
+
+import { ArticleLayout } from '@/components/ArticleLayout';
+import Image from 'next/image';
+import netsuite_plus_typescript from './netsuite_plus_typescript.png';
+
+export const meta = {
+  author: 'Sami Arar',
+  date: '2024-05-19',
+  title: 'Getting Started with TypeScript in NetSuite SuiteScript',
+  description:
+    'When developing with SuiteScript 2.0 in NetSuite, using TypeScript can significantly enhance your coding experience by providing strong typing and better error checking. While there are several options available for incorporating TypeScript into your SuiteScript projects, I have chosen to use one of them.',
+};
+
+export default (props) => <ArticleLayout meta={meta} {...props} />;
+
+When developing with SuiteScript 2.0 in NetSuite, using TypeScript can significantly enhance your coding experience by providing strong typing and better error checking.
+While there are several options available for incorporating TypeScript into your SuiteScript projects, I have chosen to use the package [@hitc/netsuite-types](https://www.npmjs.com/package/@hitc/netsuite-types).
+
+This package, developed by Robin Mitchell from Head in the Cloud Development, offers comprehensive typings for SuiteScript 2.0, making it easier to write and maintain your scripts.
+By following the setup instructions below, you can quickly integrate these typings into your NetSuite environment and take advantage of the benefits that TypeScript provides.
+
+<Image src={netsuite_plus_typescript} alt="" />
+
+## Installation
+
+In your NetSuite repository, run the following command to install the necessary package:
+
+```shell
+npm install --save-dev @hitc/netsuite-types
+```
+
+Next, create a `tsconfig.json` file in the root of your project with the following configuration:
+
+```json
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "amd",
+    "noImplicitAny": true,
+    "sourceMap": false,
+    "newLine": "LF",
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "paths": {
+      "N": ["node_modules/@hitc/netsuite-types/N"],
+      "N/*": ["node_modules/@hitc/netsuite-types/N/*"]
+    },
+    "rootDir": "TypeScripts",
+    "outDir": "src/Default/FileCabinet/SuiteScripts"
+  },
+  "include": ["TypeScripts/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+```
+
+You're now ready to start developing with TypeScript in your NetSuite environment!
+
+To create a new TypeScript file, for example: `example.ts`, place it in the `TypeScripts` directory and start coding.
+
+```typescript
+/**
+ * @NApiVersion 2.1
+ * @NScriptType UserEventScript
+ */
+
+import { EntryPoints } from 'N/types';
+
+import * as log from 'N/log';
+import * as record from 'N/record';
+
+function beforeSubmit(context: EntryPoints.UserEvent.beforeLoadContext): void {
+  if (
+    [
+      context.UserEventType.CREATE,
+      context.UserEventType.EDIT,
+      context.UserEventType.DELETE,
+    ].includes(context.type)
+  ) {
+    const newRecord: record.Record = context.newRecord;
+    const lineCount = newRecord.getLineCount({ sublistId: 'item' }) as number;
+    for (let i = 0; i < lineCount; i++) {
+      try {
+        const dateFieldValue = newRecord.getSublistValue({
+          sublistId: 'item',
+          fieldId: 'custcol_somedatefield',
+          line: i,
+        }) as Date;
+
+        if (dateFieldValue) {
+          newRecord.setSublistValue({
+            sublistId: 'item',
+            fieldId: 'custcol_someotherfield',
+            line: i,
+            value: 'somevalue',
+          });
+        }
+      } catch (e) {
+        log.error({ title: 'ERROR', details: e.message });
+      }
+    }
+    log.debug({ title: 'SUCCESS', details: 'Updated!' });
+  }
+}
+
+export = { beforeSubmit };
+```
+
+Simply run the following command to transpile your TypeScript (**.ts**) files into JavaScript (**.js**) files. Once the transpilation is complete, deploy the resulting JavaScript files to NetSuite!
+
+```shell
+tsc
+```
+
+## Conclusion
+
+With these steps, you are now set up to use TypeScript with SuiteScript 2.0 types from `@hitc/netsuite-types` in NetSuite.
+Simply run `tsc` to transpile your TypeScript files into JavaScript, and deploy the generated files to NetSuite. Happy coding!
+
+## References
+
+- [How to set up and use the tsserver on your machine](https://medium.com/@0xbboyd/suitescript-lang-server-plugins-5de53d5a8a4f)

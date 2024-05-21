@@ -28,6 +28,7 @@ function Footer() {
                   <>
                     <NavLink href="/">Accueil</NavLink>
                     <NavLink href="/about">À Propos</NavLink>
+                    <NavLink href="/articles">Articles</NavLink>
                     <NavLink href="/projects">Projets</NavLink>
                     <NavLink href="/uses">Utilisations</NavLink>
                   </>
@@ -35,6 +36,7 @@ function Footer() {
                   <>
                     <NavLink href="/">Home</NavLink>
                     <NavLink href="/about">About</NavLink>
+                    <NavLink href="/articles">Articles</NavLink>
                     <NavLink href="/projects">Projects</NavLink>
                     <NavLink href="/uses">Uses</NavLink>
                   </>

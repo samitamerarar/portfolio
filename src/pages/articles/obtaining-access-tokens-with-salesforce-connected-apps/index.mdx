@@ -1,0 +1,125 @@
+import { ArticleLayout } from '@/components/ArticleLayout';
+import Image from 'next/image';
+import salesforcelogo from './salesforce.com_logo.svg';
+import step1_ConnectedApp from './step1_ConnectedApp.png';
+import step2_ConnectedAppKeys from './step2_ConnectedAppKeys.png';
+import step2_ConnectedAppKeys_2 from './step2_ConnectedAppKeys_2.png';
+import step4_allowSalesforceAccess from './step4_allowSalesforceAccess.png';
+import step5_getAuthorizationCode from './step5_getAuthorizationCode.png';
+import step6_postmanGetRequest from './step6_postmanGetRequest.png';
+
+export const meta = {
+  author: 'Sami Arar',
+  date: '2024-05-17',
+  title: 'Obtaining Access Tokens with Salesforce Connected Apps',
+  description:
+    'Integrating external applications with Salesforce is a common requirement for many organizations. One of the key steps in this integration process is the creation of a Connected App in Salesforce, which allows external applications to securely authenticate and access Salesforce data.',
+};
+
+export default (props) => <ArticleLayout meta={meta} {...props} />;
+
+Integrating external applications with Salesforce is a common requirement for many organizations.
+One of the key steps in this integration process is the creation of a Connected App in Salesforce, which allows external applications to securely authenticate and access Salesforce data.
+In this guide, we will walk through the necessary steps to create a Connected App, retrieve API credentials, and generate an **Access Token** using the **OAuth 2.0 Authorization Code Grant Type**.
+
+<Image src={salesforcelogo} alt="" />
+
+## Step 1: Create a New Connected App
+
+- In the Setup menu, search for `App Manager` using the Quick Find box.
+- Click on `New Connected App` in the top right corner of the App Manager.
+
+### Enter Application Information
+
+Fill in the necessary detail for your Connected App:
+
+- `Connected App Name`: Name your app.
+- `API Name`: Provide a unique name for internal use.
+- `Contact Email`: Your email address for communication regarding the app.
+- Check `Enable OAuth Settings` to enable OAuth for your app.
+- `Callback URL`: Input a callback URL where users will be redirected after authentication. Use a placeholder URL like `https://test.salesforce.com`
+- Configure `OAuth Scopes`:
+  - Add `Manage user data via APIs (api)` to allow your app to access and manage user data.
+  - Add `Perform requests at any time (refresh_token, offline_access)` to enable your app to perform requests even when the user is not actively logged in.
+
+<Image src={step1_ConnectedApp} alt="" />
+
+## Step 2: Retrieve API Credentials
+
+On the Connected App page, click on the `Manage Consumer Details` button.
+
+<Image src={step2_ConnectedAppKeys} alt="" />
+
+Store the `Consumer Key` and `Consumer Secret` securely as you will need them later.
+
+```yaml
+Consumer Key: 3MVG96qSbA1.IAawvmoc43T6NGCFv2cTzR1aIeavlhdl_xTKAEQv4amTtIqkZBbtvdgfpypIErSxXTJUcS3A2
+Consumer Secret: E16D484164C61E04819A6E09F8157E89281717200F60013F9CD3D237DE218CCC
+```
+
+<Image src={step2_ConnectedAppKeys_2} alt="" />
+
+## Step 3: Construct Your URL
+
+When using a Sandbox, the beginning of your URL should be `https://mycompany--sandbox1.sandbox.my.salesforce.com`.
+
+Include these parameters in your URL:
+
+```
+response_type=code
+client_id=<your consumer key>
+redirect_uri=<the callback url defined in your connected app>
+```
+
+Your URL should resemble the following:
+
+```url
+https://mycompany--sandbox1.sandbox.my.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG96qSbA1.IAawvmoc43T6NGCFv2cTzR1aIeavlhdl_xTKAEQv4amTtIqkZBbtvdgfpypIErSxXTJUcS3A2&redirect_uri=https://test.salesforce.com
+```
+
+## Step 4: Paste the URL in your browser
+
+After constructing the URL, paste it into your browser's address bar and navigate to it.
+You should now be able to log in using your user credentials.
+Salesforce will handle the connection for you, granting you access to the platform.
+
+<Image src={step4_allowSalesforceAccess} alt="" />
+
+## Step 5: Retrieve the Authorization Code
+
+After the redirect, a new URL will appear in your browser containing the authorization code. Copy the code that appears after `?code=`.
+
+For instance, in my case: `aPrxBvbu.uSmURP0a4luKUouGQtOtx7NTrYomSjgdKywRDOXokwyZBaw55b1M8S1F0sXC7Co8Q%3D%3D`
+
+<Image src={step5_getAuthorizationCode} alt="" />
+
+## Step 6: Perform a GET Request using Postman
+
+To build your GET request in Postman, use the following parameters:
+
+```
+code=<your authorization code>
+grant_type=authorization_code
+client_id=<your consumer key>
+client_secret=<your consumer secret>
+redirect_url=<callback url on the connected app>
+```
+
+Construct your URL like this:
+
+```url
+https://test.salesforce.com/services/oauth2/token?code=aPrxBvbu.uSmURP0a4luKUouGQtOtx7NTrYomSjgdKywRDOXokwyZBaw55b1M8S1F0sXC7Co8Q%3D%3D&grant_type=authorization_code&client_id=3MVG96qSbA1.IAawvmoc43T6NGCFv2cTzR1aIeavlhdl_xTKAEQv4amTtIqkZBbtvdgfpypIErSxXTJUcS3A2&client_secret=E16D484164C61E04819A6E09F8157E89281717200F60013F9CD3D237DE218CCC&redirect_uri=https://test.salesforce.com
+```
+
+Click "Send" to receive your response. Expect a status code of 200, along with the **Access Token** in the response body.
+
+<Image src={step6_postmanGetRequest} alt="" />
+
+## Conclusion
+
+In conclusion, the goal of the process is to generate an Access Token using the OAuth 2.0
+Authorization Code Grant Type. This Access Token is crucial for making authenticated requests to the
+Salesforce API on behalf of the user. By creating a Connected App, retrieving API credentials, and
+following the OAuth flow, you can securely integrate external applications with Salesforce and access
+its features and data. It's essential to store API credentials securely and follow best practices for
+authentication and authorization to ensure the security of your Salesforce integration.

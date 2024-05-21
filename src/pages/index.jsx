@@ -80,17 +80,17 @@ function ArrowDownIcon(props) {
   );
 }
 
-function Article({ article }) {
+function Article({ article, lang, i18n }) {
   return (
     <Card as="article">
       <Card.Title href={`/articles/${article.slug}`}>
         {article.title}
       </Card.Title>
       <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
+        {formatDate(article.date, lang)}
       </Card.Eyebrow>
       <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
+      <Card.Cta>{i18n('article_readarticle')}</Card.Cta>
     </Card>
   );
 }
@@ -305,6 +305,8 @@ function Photos() {
 
 export default function Home({ articles }) {
   const { t } = useTranslation('index');
+  const lang = useTranslation().i18n.language;
+
   return (
     <>
       <Head>
@@ -334,26 +336,31 @@ export default function Home({ articles }) {
         </div>
       </Container>
       <Photos />
-      {/* <Container className="mt-24 md:mt-28">
+      <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
-              <Article key={article.slug} article={article} />
+              <Article
+                key={article.slug}
+                article={article}
+                lang={lang === 'fr' ? 'fr-CA' : 'en-US'}
+                i18n={t}
+              />
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
+            {/* <Newsletter /> */}
             <Resume />
           </div>
         </div>
-      </Container> */}
-      <Container className="mt-24 md:mt-28">
+      </Container>
+      {/* <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-1">
           <div className="space-y-10">
             <Resume />
           </div>
         </div>
-      </Container>
+      </Container> */}
     </>
   );
 }

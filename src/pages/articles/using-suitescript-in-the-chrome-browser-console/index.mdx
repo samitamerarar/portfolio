@@ -1,0 +1,71 @@
+import { ArticleLayout } from '@/components/ArticleLayout';
+import Image from 'next/image';
+import netsuite_plus_chrome from './netsuite_plus_chrome.png';
+import customer_page from './customer_page.png';
+import chrome_console_code from './chrome_console_code.png';
+import chrome_console_results from './chrome_console_results.png';
+
+export const meta = {
+  author: 'Sami Arar',
+  date: '2024-05-18',
+  title: 'Using SuiteScript in the Chrome Browser Console',
+  description:
+    "Explore how to leverage SuiteScript, NetSuite's scripting language, directly within the Chrome browser console for experimenting purposes.",
+};
+
+export default (props) => <ArticleLayout meta={meta} {...props} />;
+
+Explore how to leverage SuiteScript, NetSuite's scripting language, directly within the Chrome browser console for experimenting purposes.
+
+<Image src={netsuite_plus_chrome} alt="" />
+
+## Accessing the Chrome Console
+
+To begin, log in to your NetSuite account, and ensure you're using your **sandbox account**. Avoid experimenting in your production account
+to prevent any unintended changes.
+
+Navigate to any record within NetSuite, right-click on the page, and select `Inspect` to access the browser console (_avoid using the F12 shortcut_).
+
+<Image src={customer_page} alt="" />
+
+Start by importing the needed SuiteScript modules:
+
+```javascript
+require(['N/search']);
+```
+
+Then, load your needed module into a variable:
+
+```javascript
+const search = require('N/search');
+```
+
+Write your code. In this example, we're performing a search on the customer record type:
+
+```javascript
+const customerSearch = search.create({
+  type: search.Type.CUSTOMER,
+  filters: [
+    ['companyname', 'contains', 'SomeName'],
+    'and',
+    ['email', 'isnotempty', ''],
+  ],
+  columns: ['internalid', 'entityid'],
+});
+
+const results = customerSearch.run().getRange({ start: 0, end: 50 });
+```
+
+## The end results
+
+<Image src={chrome_console_code} alt="" />
+
+After pressing enter, your results variable should now contain the search results.
+
+<Image src={chrome_console_results} alt="" />
+
+## Conclusion
+
+In conclusion, leveraging SuiteScript in the Chrome browser console provides a convenient way to experiment, test,
+and prototype scripts before implementing them in your NetSuite account.
+This approach can enhance your development workflow by allowing you to quickly iterate and troubleshoot code in a familiar environment.
