@@ -13,7 +13,7 @@ import image3 from '@/images/photos/ai-generated-3.png';
 import logoStingray from '@/images/logos/stingray.svg';
 import logoMatrox from '@/images/logos/matrox.svg';
 import logoPrattWhitney from '@/images/logos/prattwhitney.svg';
-import { generateRssFeed } from '@/lib/generateRssFeed';
+// import { generateRssFeed } from '@/lib/generateRssFeed';
 import { getAllArticles } from '@/lib/getAllArticles';
 import { formatDate } from '@/lib/formatDate';
 
@@ -367,7 +367,7 @@ export default function Home({ articles }) {
 
 export async function getStaticProps({ locale }) {
   if (process.env.NODE_ENV === 'production') {
-    await generateRssFeed();
+    // await generateRssFeed();
   }
 
   return {
