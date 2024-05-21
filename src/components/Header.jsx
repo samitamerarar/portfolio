@@ -274,7 +274,12 @@ function ModeToggle() {
 
 function LanguageToggle() {
   const router = useRouter();
-  const [currentLanguage, setCurrentLanguage] = useState('en');
+  const [currentLanguage, setCurrentLanguage] = useState(router.locale);
+
+  // Initialize currentLanguage based on the current locale
+  useEffect(() => {
+    setCurrentLanguage(router.locale);
+  }, [router.locale]);
 
   const toggleLanguage = () => {
     const newLanguage = currentLanguage === 'en' ? 'fr' : 'en';
