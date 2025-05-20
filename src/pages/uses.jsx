@@ -66,6 +66,9 @@ export default function Uses() {
             </Tool>
           </ToolsSection>
           <ToolsSection title={t('toolssection3_title')}>
+            <Tool title={t('toolssection3_tool2_title')}>
+              {t('toolssection3_tool2_content')}
+            </Tool>
             <Tool title={t('toolssection3_tool1_title')}>
               {t('toolssection3_tool1_content')}
             </Tool>

@@ -1,6 +1,7 @@
 {
-  "head_content": "I’m Sami, a Software Engineering graduate from Polytechnique Montréal. In addition to my expertise in full stack programming, I have ventured into business analysis. My enthusiasm for continuous learning drives my active involvement in projects utilizing Amazon Web Services, Salesforce CRM, and Oracle Netsuite ERP.",
+  "head_content": "I’m Sami, Software Engineer at Stingray Group, a Polytechnique Montréal alum, and a member of the Ordre des ingénieurs du Québec. In addition to my expertise in full stack programming, I have ventured into business analysis. My enthusiasm for continuous learning drives my active involvement in projects utilizing Amazon Web Services, Salesforce CRM, and Oracle Netsuite ERP.",
   "container_div1_h1": "Hi, I’m {{name}}",
+  "container_div1_span1": "Licensed Engineer (OIQ)",
   "resume_div_h2": "Work",
   "resume_div_bouton": "Download CV",
   "resume_role4_end": "Present",

@@ -3,6 +3,9 @@ import Head from 'next/head';
 
 import { Card } from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
+import logoSalesforce from '@/images/logos/salesforce.com_logo.svg';
+import logoNetsuite from '@/images/logos/oracle_netsuite.png';
+import logoAWSTerraform from '@/images/logos/aws_terraform.png';
 import logoAppartogo from '@/images/logos/appartogo.svg';
 import logoChessGame from '@/images/logos/chess-game.svg';
 import logoTopNews from '@/images/logos/newspaper.svg';
@@ -50,6 +53,69 @@ function LinkIcon(props) {
 
 export default function Projects() {
   const { t } = useTranslation('projects');
+
+  const professionalProjects = [
+    {
+      name: 'Salesforce CRM',
+      description: t('project12_description'),
+      technologies: [
+        {
+          category: 'Admin',
+          items: 'Sales Cloud • Service Cloud • Service Cloud Voice • CPQ',
+        },
+        {
+          category: 'Custom',
+          items:
+            'Apex • Visualforce • Lightning Web Components (LWC) • Flow Builder • Platform Events & CDC • REST API • Connected Apps',
+        },
+        {
+          category: 'CI/CD',
+          items: 'SFDX • Scratch/Dev Orgs • GitLab',
+        },
+      ],
+      logo: logoSalesforce,
+    },
+    {
+      name: 'Oracle NetSuite ERP',
+      description: t('project12_description'),
+      technologies: [
+        {
+          category: 'SuiteScript (TypeScript)',
+          items:
+            'User Event Script • Map/Reduce • Scheduled Script • Suitelet/RESTlet',
+        },
+        {
+          category: 'HTML/PDF',
+          items: 'BFO • Freemarker • SuiteScript',
+        },
+        {
+          category: 'Integration',
+          items: 'SDF • GitLab',
+        },
+      ],
+      logo: logoNetsuite,
+    },
+    {
+      name: 'Amazon Web Services',
+      description: t('project12_description'),
+      technologies: [
+        {
+          category: 'Services',
+          items:
+            'Amazon Connect • Lambda • S3 • CloudWatch • API Gateway • SNS/SQS • EventBridge • AppFlow • ...',
+        },
+        {
+          category: 'Code',
+          items: 'Terraform (IaC) • Python',
+        },
+        {
+          category: 'CI/CD',
+          items: 'Concourse • GitLab',
+        },
+      ],
+      logo: logoAWSTerraform,
+    },
+  ];
 
   const projects = [
     {
@@ -175,6 +241,55 @@ export default function Projects() {
           role="list"
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
         >
+          {professionalProjects.map((project) => (
+            <Card
+              as="li"
+              key={project.name}
+              className="flex flex-col items-center"
+            >
+              <div
+                className="relative z-10 flex h-24 w-48 items-center justify-center rounded-3xl bg-white 
+                    shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+              >
+                <Image
+                  src={project.logo}
+                  alt=""
+                  className="max-h-24 rounded-3xl"
+                  unoptimized
+                />
+              </div>
+
+              <h2 className="mt-6 text-xl font-semibold text-zinc-800 dark:text-zinc-100">
+                <Card>{project.name}</Card>
+              </h2>
+
+              <Card.Description className="text-center">
+                {project.description}
+              </Card.Description>
+
+              <div className="mt-3 space-y-2 text-center text-sm font-light text-zinc-400 dark:text-zinc-200">
+                {project.technologies.map((techGroup, index) => (
+                  <div key={index} className="flex flex-col">
+                    <span className="font-medium text-zinc-500 dark:text-zinc-300">
+                      {techGroup.category}
+                    </span>
+                    <span>{techGroup.items}</span>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </ul>
+      </SimpleLayout>
+
+      <SubSimpleLayout
+        title={t('subsimplelayout1_title')}
+        intro={t('subsimplelayout1_intro')}
+      >
+        <ul
+          role="list"
+          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {projects.map((project) => (
             <Card as="li" key={project.name}>
               <div
@@ -207,11 +322,11 @@ export default function Projects() {
             </Card>
           ))}
         </ul>
-      </SimpleLayout>
+      </SubSimpleLayout>
 
       <SubSimpleLayout
-        title={t('subsimplelayout1_title')}
-        intro={t('subsimplelayout1_intro')}
+        title={t('subsimplelayout2_title')}
+        intro={t('subsimplelayout2_intro')}
       >
         <ul
           role="list"

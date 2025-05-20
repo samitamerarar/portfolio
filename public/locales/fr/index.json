@@ -1,6 +1,7 @@
 {
-  "head_content": "Je m'appelle Sami, diplômé en génie logiciel de Polytechnique Montréal. En plus de ma maîtrise en programmation full stack, je me suis aventuré dans le domaine de l'analyse d'affaires. Mon enthousiasme pour l'apprentissage a alimenté ma participation active sur des projets tournant autour des services d'Amazon AWS, du CRM Salesforce et du ERP Oracle Netsuite.",
+  "head_content": "Je m'appelle Sami, ingénieur logiciel chez Stingray Group et diplômé en génie logiciel de Polytechnique Montréal. En plus de ma maîtrise en programmation full stack, je me suis aventuré dans le domaine de l'analyse d'affaires. Mon enthousiasme pour l'apprentissage a alimenté ma participation active sur des projets tournant autour des services d'Amazon AWS, du CRM Salesforce et du ERP Oracle Netsuite.",
   "container_div1_h1": "Bonjour, je m'appelle {{name}}",
+  "container_div1_span1": "Membre de l'Ordre des ingénieurs du Québec",
   "resume_div_h2": "Travail",
   "resume_div_bouton": "Télécharger le CV",
   "resume_role4_end": "Présent",

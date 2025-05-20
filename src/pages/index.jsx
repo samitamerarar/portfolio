@@ -13,6 +13,9 @@ import image3 from '@/images/photos/ai-generated-3.png';
 import logoStingray from '@/images/logos/stingray.svg';
 import logoMatrox from '@/images/logos/matrox.svg';
 import logoPrattWhitney from '@/images/logos/prattwhitney.svg';
+import logoSF from '@/images/logos/salesforce.com_logo.svg';
+import logoAWS from '@/images/logos/Amazon_Web_Services_Logo.svg';
+import logoNS from '@/images/logos/netsuite.svg';
 // import { generateRssFeed } from '@/lib/generateRssFeed';
 import { getAllArticles } from '@/lib/getAllArticles';
 import { formatDate } from '@/lib/formatDate';
@@ -313,15 +316,25 @@ export default function Home({ articles }) {
         <title>Sami Arar</title>
         <meta name="description" content={t('head_content')} />
       </Head>
-      <Container className="mt-9">
+      <Container className="relative mt-9">
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            {t('container_div1_h1', { name: 'Sami' })}
-          </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <div className="flex items-center justify-between">
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              {t('container_div1_h1', { name: 'Sami' })}
+            </h1>
+            <div className="flex gap-3">
+              <Image src={logoSF} alt="sf" className="h-9 w-auto md:h-12" />
+              <Image src={logoAWS} alt="aws" className="h-8 w-auto md:h-10" />
+              <Image src={logoNS} alt="ns" className="h-10 w-auto md:h-14" />
+            </div>
+          </div>
+          <p className="mt-6 mb-2 text-base text-zinc-600 dark:text-zinc-400">
             {t('head_content')}
           </p>
-          <div className="mt-6 flex gap-6">
+          <span className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
+            {t('container_div1_span1')}
+          </span>
+          <div className="mt-4 flex gap-6">
             <SocialLink
               href="https://github.com/samitamerarar"
               aria-label="Follow on GitHub"
