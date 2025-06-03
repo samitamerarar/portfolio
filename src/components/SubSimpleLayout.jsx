@@ -1,6 +1,6 @@
 import { Container } from '@/components/Container';
 
-export function SubSimpleLayout({ title, intro, children }) {
+export function SubSimpleLayout({ title, intro, intro2, subintro, children }) {
   return (
     <Container className="mt-16 sm:mt-32">
       <header className="max-w-2xl">
@@ -8,8 +8,14 @@ export function SubSimpleLayout({ title, intro, children }) {
           {title}
         </h2>
         <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-          {intro}
+          {intro + ' '}
+          {intro2 && <span className="line-through">{intro2}</span>}
         </p>
+        {subintro && (
+          <p className="mt-2 text-sm font-bold text-zinc-500 dark:text-zinc-400">
+            {subintro && <span>{subintro}</span>}
+          </p>
+        )}
       </header>
       <div className="mt-12 sm:mt-16">{children}</div>
     </Container>

@@ -285,6 +285,8 @@ export default function Projects() {
       <SubSimpleLayout
         title={t('subsimplelayout1_title')}
         intro={t('subsimplelayout1_intro')}
+        intro2={t('subsimplelayout1_intro2')}
+        subintro={t('subsimplelayout1_subintro')}
       >
         <ul
           role="list"
